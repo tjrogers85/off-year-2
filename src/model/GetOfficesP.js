@@ -8,7 +8,7 @@ function GetOfficesP(year, muniType, muniName, muniTypeArray) {
   const parsedArray = JSON.parse(muniTypeArray);
   const villageData = VillageData();
   let parseQ = "";
-  let objectArray = [];
+  let objectArray = []; 
 
   const lastTwo = year.slice(2);
   if (year === "2016" || year === "2017") {

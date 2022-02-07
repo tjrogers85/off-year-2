@@ -7,10 +7,10 @@ function ArrayList4(props) {
   const muniType = localStorage.getItem("muniType");
   const muniTypeArray = localStorage.getItem("muniTypeArray");
   const prim = localStorage.getItem("elec");
-  let five = '5'
+  let five = "5";
 
-  if (prim.includes('Primary')) {
-    five = '5P'
+  if (prim.includes("Primary")) {
+    five = "5P";
   }
 
   let twdArray = [];
@@ -22,47 +22,69 @@ function ArrayList4(props) {
       twdArray.push(item.twd);
     }
     return twdArray;
-  });   
+  });
 
   const townVillageArray = TownOrVillage(twdArray, muniType);
 
   return (
     <div className="App">
-      <NavBar title={title} />
-      <div>
-        {muniType === "Town/City" && <h5>TOWNS</h5>}
-        <ul className="no-bullets">
-          {townVillageArray.townVillage.map((item) => (
-            <Link
-              className="no-link-style"
-              to={{
-                pathname: `/${five}`,
-              }}
-              key={item}
-            >
-              <li className="li-standard" onClick={() => localStorage.setItem("muniName", `${item}`)}>{item}</li>
-            </Link>
-          ))}
-        </ul>
-      </div>
-      {townVillageArray.city.length > 0 && (
-        <div>
-          <h5>CITIES</h5>
-          <ul className="no-bullets">
-            {townVillageArray.city.map((item) => (
-              <Link
-                className="no-link-style"
-                to={{
-                  pathname: `/${five}`,
-                }}
-                key={item}
-              >
-                <li className="li-standard" onClick={() => localStorage.setItem("muniName", `${item}`)}>{item}</li>
-              </Link>
-            ))}
-          </ul>
+      <div className="backGround1">
+        <div className="work-screen">
+          <NavBar title={title} />
+          <div className="array-bg">
+            <div className="list-box-container">
+              <div>
+                {muniType === "Town/City" && <h5>TOWNS</h5>}
+                <ul className="no-bullets">
+                  {townVillageArray.townVillage.map((item) => (
+                    <Link
+                      className="no-link-style"
+                      to={{
+                        pathname: `/${five}`,
+                      }}
+                      key={item}
+                    >
+                      <li
+                        className="li-standard"
+                        onClick={() =>
+                          localStorage.setItem("muniName", `${item}`)
+                        }
+                      >
+                        {item}
+                      </li>
+                    </Link>
+                  ))}
+                </ul>
+              </div>
+              {townVillageArray.city.length > 0 && (
+                <div>
+                  <h5>CITIES</h5>
+                  <ul className="no-bullets">
+                    {townVillageArray.city.map((item) => (
+                      <Link
+                        className="no-link-style"
+                        to={{
+                          pathname: `/${five}`,
+                        }}
+                        key={item}
+                      >
+                        <li
+                          className="li-standard"
+                          onClick={() =>
+                            localStorage.setItem("muniName", `${item}`)
+                          }
+                        >
+                          {item}
+                        </li>
+                      </Link>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

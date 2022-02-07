@@ -1,0 +1,28 @@
+.spinner {
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  margin-top: 25vh;
+  align-self: center;
+  justify-self: center;
+  /* border: solid 0.05rem rgb(6, 75, 27); */
+}
+.spinner:after {
+  content: " ";
+  display: block;
+  width: 16vw;
+  height: 16vw;
+  /* margin-left: 33%; */
+  border-radius: 50%;
+  border: 2vw solid rgb(22, 64, 128);
+  border-color: rgb(22, 64, 128) transparent rgb(22, 64, 128) transparent;
+  animation: spinner 1.2s linear infinite;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

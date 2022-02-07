@@ -12,9 +12,8 @@ function TwdToTownCode(twd, twdOrArray) {
     } else if (twdOrArray === "twd") {
       twdResult = twd.substring(0,2);
     }
-  
+
     return twdResult
-  
     
   }
   

@@ -8,6 +8,8 @@ function RegionalCalc(regionResults, regionEdArray, resultsToRegionArray) {
       let tempVotes = 0;
       for (const ed of regionEdArray) {
         for (const result of regionResults) {
+          console.log(`${result.get("candidate")} ${result.get("party")}`)
+
           if (
             !(
               item.candidate === "TOTAL CANVASS" ||

@@ -21,25 +21,39 @@ function ArrayList5P() {
 
   return (
     <div className="App">
-      <NavBar title={title} />
-      <ul className="no-bullets">
-        {officeArray.map((item) => (
-          <Link className="no-link-style" to={{ pathname: "/6" }} key={officeArray.indexOf(item)}>
-            <li
-              onClick={() => localStorage.setItem("office", `${item.office}`)}
-            >
-                <span className="span-item1">
-                <img
-                  className="party-icon"
-                  src={`./images/${item.party}Icon.png`}
-                  alt=""
-                />
-                <span className="span-office">{item.office}</span>
-              </span>
-            </li>
-          </Link>
-        ))}
-      </ul>
+      <div className="backGround1">
+        <div className="work-screen">
+          <NavBar title={title} />
+          <div className="array-bg">
+            <ul className="no-bullets">
+              
+              {officeArray.map((item) => (
+                <Link
+                  className="no-link-style"
+                  to={{ pathname: "/6" }}
+                  key={officeArray.indexOf(item)}
+                >
+                  <li
+                    onClick={() =>
+                      [localStorage.setItem("office", `${item.office}`), 
+                      localStorage.setItem("section", `${item.section}`)]
+                    }
+                  >
+                    <span className="span-item1">
+                      <img
+                        className="party-icon"
+                        src={`./images/${item.party}Icon.png`}
+                        alt=""
+                      />
+                      <span className="span-office">{item.office}</span>
+                    </span>
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

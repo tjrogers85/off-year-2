@@ -22,8 +22,6 @@ function GetRegionalData(year, muniType, muniName, office, region, prim) {
 
   const thisFunc = async () => {
 
-
-
     const lastTwo = year.slice(2);
 
     if (prim.includes("Primary")) {
@@ -85,6 +83,8 @@ function GetRegionalData(year, muniType, muniName, office, region, prim) {
             }
         }
     }
+
+    console.log(regionResults)
 
     let regionCalc = RegionalCalc(regionResults, regionEdArray, resultsToRegionArray)
 

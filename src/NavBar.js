@@ -16,7 +16,7 @@ function NavBar(props) {
       </span>
       <span className="right">
         <span> 
-        <button className="so-button" onClick={() => navigate("/*")}>Start Over</button>
+        <button className="so-button" onClick={() => navigate("/main")}>Start Over</button>
         </span>
       </span>
     </div>

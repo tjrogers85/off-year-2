@@ -10,17 +10,19 @@ function ArrayList7() {
   const muniType = localStorage.getItem("muniType");
   const muniName = localStorage.getItem("muniName");
   const office = localStorage.getItem("office");
+  localStorage.setItem("uEstate", 0);
   let regionMuniType = "";
 
   function storeElec(regionMuniType) {
     localStorage.setItem("regionMuniType", regionMuniType);
+
     localStorage.setItem("regionObjectArray", JSON.stringify(defineResults));
   }
 
   let searchVar = "";
   let edArray = [];
   let regionArray = [];
-  const county = "county"
+  const county = "county";
 
   if (
     (muniType === "Town/City" || muniType === "Village") &&
@@ -46,16 +48,16 @@ function ArrayList7() {
     }
     searchVar = office;
   } else {
-    searchVar = county
+    searchVar = county;
   }
 
-localStorage.setItem('searchVar', searchVar)
+  localStorage.setItem("searchVar", searchVar);
 
   regionPicked.map((item) => {
-    if (searchVar !== 'county') {
+    if (searchVar !== "county") {
       if (item.region === searchVar) {
         edArray.push(item.ed);
-      } 
+      }
     } else {
       edArray.push(item.ed);
     }
@@ -80,22 +82,30 @@ localStorage.setItem('searchVar', searchVar)
 
   return (
     <div className="App">
-      <NavBar title={title} />
-      <ul className="no-bullets">
-        {resultArray.map((item) => (
-          <Link
-            className="no-link-style"
-            to={{
-              pathname: "/8",
-            }}
-            key={item}
-          >
-            <li className="li-standard" onClick={() => storeElec(item)}>
-              {item}
-            </li>
-          </Link>
-        ))}
-      </ul>
+      <div className="backGround1">
+        <div className="work-screen">
+          <NavBar title={title} />
+          <div className="array-bg">
+            <div className="list-box-container">
+              <ul className="no-bullets">
+                {resultArray.map((item) => (
+                  <Link
+                    className="no-link-style"
+                    to={{
+                      pathname: "/8",
+                    }}
+                    key={item}
+                  >
+                    <li className="li-standard" onClick={() => storeElec(item)}>
+                      {item}
+                    </li>
+                  </Link>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

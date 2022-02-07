@@ -82,6 +82,7 @@ function TownCodeToTown(townCodeArray) {
           console.log("No Town or City Listed");
       }
       townArray.push(town)
+      // townArray.push(town.toUpperCase())
     }
     return townArray
   }

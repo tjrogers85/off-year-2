@@ -5,8 +5,7 @@ import TwdToElectionDistrict from "../model/TwdToElectionDistrict";
 import { useState } from "react";
 
 function ArrayList8() {
-  const [searchTerm, setSearchTerm] = useState('')
-
+  const [searchTerm, setSearchTerm] = useState("");
 
   const tempArray2 = [1, 2, 3, 4];
   const title = "Select Region Name";
@@ -47,35 +46,56 @@ function ArrayList8() {
 
   return (
     <div className="App">
-      <NavBar title={title} />
-      <div className="input-container">
-        <input className="input-item" type="text" placeholder="Search"  onChange={event => {setSearchTerm(event.target.value)}}/>
+      <div className="backGround1">
+        <div className="work-screen">
+          <NavBar title={title} />
+          <div className="input-container">
+            <input
+              className="input-item"
+              type="text"
+              placeholder="Search"
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+              }}
+            />
+          </div>
+          <div className="array-bg">
+            <div className="list-box-container">
+              <div className="ui search" />
+              <ul className="no-bullets">
+                {returnArray
+                  .filter((val) => {
+                    if (searchTerm === "") {
+                      return val;
+                    } else if (
+                      val.toLowerCase().includes(searchTerm.toLowerCase())
+                    ) {
+                      return val;
+                    }
+                  })
+                  .map((item) => (
+                    <Link
+                      className="no-link-style"
+                      to={{
+                        pathname: "/9",
+                      }}
+                      key={item}
+                    >
+                      <li
+                        className="li-standard"
+                        onClick={() =>
+                          localStorage.setItem("region", `${item}`)
+                        }
+                      >
+                        {item}
+                      </li>{" "}
+                    </Link>
+                  ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="ui search" />
-      <ul className="no-bullets">
-        {returnArray.filter((val)=> {
-          if (searchTerm === "") {
-            return val
-          } else if (val.toLowerCase().includes(searchTerm.toLowerCase())){
-            return val
-          }
-        }).map((item) => (
-          <Link
-            className="no-link-style"
-            to={{
-              pathname: "/9",
-            }}
-            key={item}
-          >
-            <li
-              className="li-standard"
-              onClick={() => localStorage.setItem("region", `${item}`)}
-            >
-              {item}
-            </li>{" "}
-          </Link>
-        ))}
-      </ul>
     </div>
   );
 }

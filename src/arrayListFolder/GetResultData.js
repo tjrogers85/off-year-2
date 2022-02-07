@@ -6,11 +6,11 @@ import TownToTownCode from "../model/TownToTownCode";
 import VillageData from "../model/VillageData";
 import SortParty from "./SortParty";
 
-function GetResultData(year, muniType, muniName, office, prim) {
+function GetResultData(year, muniType, muniName, office, prim, section) {
   const [officeArray, setOfficeArray] = useState([]);
   let parseQ = "";
-  let section = "";
   let parseArray = [];
+  let sectionGen = "";
 
   const thisFunc = async () => {
     const lastTwo = year.slice(2);
@@ -23,6 +23,7 @@ function GetResultData(year, muniType, muniName, office, prim) {
       } else {
         parseQ = new Parse.Query(`ResultsPrimary`);
       }
+      parseQ.contains("section", section);
     } else {
       parseQ = new Parse.Query(`Results${year}`);
     }
@@ -52,12 +53,15 @@ function GetResultData(year, muniType, muniName, office, prim) {
       candidateObject.candidate = item.get("candidate");
       candidateObject.party = item.get("party");
       candidateObject.votes = TopCalc(queryResults, item);
-      section = item.get("section");
+      sectionGen = item.get("section");
       parseArray.push(candidateObject);
     }
 
     localStorage.setItem("resultsToRegionArray", JSON.stringify(parseArray));
-    localStorage.setItem("section", section);
+    if (!(prim.includes("Primary"))) {
+      console.log(sectionGen)
+      localStorage.setItem("section", sectionGen);
+    }
     let topSub = TopFilter(parseArray);
     setOfficeArray(topSub);
   };
