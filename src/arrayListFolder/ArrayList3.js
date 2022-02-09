@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 function ArrayList3(props) {
   const title = "Municipality Type";
-  const yearElec = localStorage.getItem("yearElec");
-  const primaryCode = localStorage.getItem("elec");
+  const yearElec = sessionStorage.getItem("yearElec");
+  const primaryCode = sessionStorage.getItem("elec");
   let muniTypeArray = [];
   let nextArray = [];
   let five = "5";
@@ -20,7 +20,7 @@ function ArrayList3(props) {
       muniTypeArray.push(item.muni);
       nextArray.push(item);
     }
-    localStorage.setItem("muniTypeArray", JSON.stringify(nextArray));
+    sessionStorage.setItem("muniTypeArray", JSON.stringify(nextArray));
     return muniTypeArray;
   });
 
@@ -46,7 +46,7 @@ function ArrayList3(props) {
                       <li
                         className="li-standard"
                         onClick={() =>
-                          localStorage.setItem("muniType", `${item}`)
+                          sessionStorage.setItem("muniType", `${item}`)
                         }
                       >
                         {item}
@@ -63,7 +63,7 @@ function ArrayList3(props) {
                       <li
                         className="li-standard"
                         onClick={() =>
-                          localStorage.setItem("muniType", `${item}`)
+                          sessionStorage.setItem("muniType", `${item}`)
                         }
                       >
                         {item}

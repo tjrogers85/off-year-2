@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 function ArrayList4(props) {
   const title = "Municipality Name";
-  const muniType = localStorage.getItem("muniType");
-  const muniTypeArray = localStorage.getItem("muniTypeArray");
-  const prim = localStorage.getItem("elec");
+  const muniType = sessionStorage.getItem("muniType");
+  const muniTypeArray = sessionStorage.getItem("muniTypeArray");
+  const prim = sessionStorage.getItem("elec");
   let five = "5";
 
   if (prim.includes("Primary")) {
@@ -47,7 +47,7 @@ function ArrayList4(props) {
                       <li
                         className="li-standard"
                         onClick={() =>
-                          localStorage.setItem("muniName", `${item}`)
+                          sessionStorage.setItem("muniName", `${item}`)
                         }
                       >
                         {item}
@@ -71,7 +71,7 @@ function ArrayList4(props) {
                         <li
                           className="li-standard"
                           onClick={() =>
-                            localStorage.setItem("muniName", `${item}`)
+                            sessionStorage.setItem("muniName", `${item}`)
                           }
                         >
                           {item}

@@ -38,7 +38,7 @@ function Voter1() {
     voterSearchObject.po = po;
     voterSearchObject.muni = muni;
     voterSearchObject.party = party;
-    localStorage.setItem(
+    sessionStorage.setItem(
       "voterSearchObject",
       JSON.stringify(voterSearchObject)
     );
@@ -49,18 +49,15 @@ function Voter1() {
   //   function logKey(e) {
   //     if (e.code === "Enter") {
   //       searchFunc()
-  //       console.log(voterSearchObject.first)
 
   //     }
   //   }}, []);
-
-  //Starting the fuckery
 
   return (
     <div className="App">
       {/* <div className="backGround1"> */}
         <div className="blue-stretch2"
-          style={{ backgroundImage: "url('/images/mainBackground.png')" }}
+          style={{ backgroundImage: "url('/images/mainBackground.jpg')" }}
         >
           <div className="main-screen-voter">
             <NavBarTrans />
@@ -111,7 +108,7 @@ function Voter1() {
               <select
                 className="select-item-voter"
                 type="text"
-                defaultValue=""
+                defaultValue={undefined}
                 value={muni}
                 onChange={(event) => {
                   setMuni(event.target.value);
@@ -150,7 +147,7 @@ function Voter1() {
               <select
                 className="select-item-voter"
                 type="text"
-                defaultValue=""
+                defaultValue={undefined}
                 value={party}
                 onChange={(event) => {
                   setParty(event.target.value);

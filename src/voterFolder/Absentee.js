@@ -1,7 +1,7 @@
 import NavBar from "../NavBar";
 
 function Absentee() {
-  const absArray = [JSON.parse(localStorage.getItem("absArray"))];
+  const absArray = [JSON.parse(sessionStorage.getItem("absArray"))];
 
   let genArray = [];
   let primArray = [];

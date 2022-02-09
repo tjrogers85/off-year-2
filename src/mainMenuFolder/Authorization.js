@@ -41,9 +41,7 @@ function Authorization() {
       emailObject.firstName = queryObject.get("FirstName")
       emailObject.accessCode = queryObject.get("AccessCode")
       emailObject.email = queryObject.get("Email")
-  
-      console.log(emailObject)
-  
+    
       if (emailCode === "0") {
         emailjs.send(
           "service_hb7wxza",
@@ -51,7 +49,6 @@ function Authorization() {
           emailObject,
           "user_l2bg54CHOtGPO5rD7DfXL"
         ).then(res=>{
-            console.log(res);
         }).catch(err=> console.log(err))
         localStorage.setItem("emailCode", "1")
       }
@@ -96,7 +93,6 @@ function Authorization() {
         createObject,
         "user_l2bg54CHOtGPO5rD7DfXL"
       ).then(res=>{
-          console.log(res);
       }).catch(err=> console.log(err))
       localStorage.setItem("emailCode", "1")
     }
@@ -109,7 +105,7 @@ function Authorization() {
       <Header />
       <div
         className="auth-main"
-        style={{ backgroundImage: "url('/images/mainBackground.png')" }}
+        style={{ backgroundImage: "url('/images/mainBackground.jpg')" }}
       >
         <div className="auth-button-box">
           <button className="auth-button" onClick={() => ExpandCreate()}>

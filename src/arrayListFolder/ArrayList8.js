@@ -9,10 +9,10 @@ function ArrayList8() {
 
   const tempArray2 = [1, 2, 3, 4];
   const title = "Select Region Name";
-  const regionArray = localStorage.getItem("regionObjectArray");
+  const regionArray = sessionStorage.getItem("regionObjectArray");
   const parsedArray = JSON.parse(regionArray);
-  const listAnchor = localStorage.getItem("regionMuniType");
-  const searchVar = localStorage.getItem("searchVar");
+  const listAnchor = sessionStorage.getItem("regionMuniType");
+  const searchVar = sessionStorage.getItem("searchVar");
   let twdArray = [];
   let returnArray = [];
   let nextArray = [];
@@ -41,7 +41,7 @@ function ArrayList8() {
       nextArray.push(ed);
     }
     const edArray = { name: "edArray", array: nextArray };
-    localStorage.setItem("edSelect", JSON.stringify(edArray));
+    sessionStorage.setItem("edSelect", JSON.stringify(edArray));
   }
 
   return (
@@ -84,7 +84,7 @@ function ArrayList8() {
                       <li
                         className="li-standard"
                         onClick={() =>
-                          localStorage.setItem("region", `${item}`)
+                          sessionStorage.setItem("region", `${item}`)
                         }
                       >
                         {item}

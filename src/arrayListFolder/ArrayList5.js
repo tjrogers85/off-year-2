@@ -4,23 +4,23 @@ import GetOffices from "../model/GetOffices";
 
 function ArrayList5(props) {
   const title = "Office";
-  const muniName = localStorage.getItem("muniName");
-  const muniType = localStorage.getItem("muniType");
-  const muniTypeArray = localStorage.getItem("muniTypeArray");
+  const muniName = sessionStorage.getItem("muniName");
+  const muniType = sessionStorage.getItem("muniType");
+  const muniTypeArray = sessionStorage.getItem("muniTypeArray");
 
   if (muniType === "County") {
-    localStorage.setItem("muniName", "Westchester");
+    sessionStorage.setItem("muniName", "Westchester");
   } else if (muniType === "State") {
-    localStorage.setItem("muniName", "New York");
+    sessionStorage.setItem("muniName", "New York");
   } else if (muniType === "Federal") {
-    localStorage.setItem("muniName", "U.S.");
+    sessionStorage.setItem("muniName", "U.S.");
   }
   const officeArray = GetOffices(muniType, muniName, muniTypeArray);
 
   if (muniType === "State") {
-    localStorage.setItem("muniName", "New York");
+    sessionStorage.setItem("muniName", "New York");
   } else if (muniType === "Federal") {
-    localStorage.setItem("muniName", "United States");
+    sessionStorage.setItem("muniName", "United States");
   }
 
   return (
@@ -39,7 +39,7 @@ function ArrayList5(props) {
                   >
                     <li
                       className="li-standard"
-                      onClick={() => localStorage.setItem("office", `${item}`)}
+                      onClick={() => sessionStorage.setItem("office", `${item}`)}
                     >
                       {item}
                     </li>

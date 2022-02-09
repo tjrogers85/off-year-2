@@ -21,11 +21,6 @@ function Landing() {
         const accessCode = localStorage.getItem("AccessCode");
         const userNumber = localStorage.getItem("UserNumber");
 
-        // const accessCode = ""
-        // const userNumber = ""
-
-        console.log(`${accessCode} ${userNumber}`)
-
         parseQ.contains("UserNumber", userNumber);
         let queryResults = await parseQ.find();
         let userObject = "";
@@ -65,7 +60,7 @@ function Landing() {
       <Header />
       <div
         className="auth-main"
-        style={{ backgroundImage: "url('/images/mainBackground.png')" }}
+        style={{ backgroundImage: "url('/images/mainBackground.jpg')" }}
       ></div>
     </div>
   );

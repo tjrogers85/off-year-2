@@ -33,17 +33,13 @@ if (chrome !== "1") {
   localStorage.setItem("Chrome", "1")
 }
 
-console.log(browser)
-
-
-
   return (
     <div className="App">
       <Header />
       <div className="backGround1">
         <div
           className="main-screen"
-          style={{ backgroundImage: "url('/images/mainBackground.png')" }}
+          style={{ backgroundImage: "url('/images/mainBackground.jpg')" }}
         >
           <div className="button-group">
             <span className="button-row">

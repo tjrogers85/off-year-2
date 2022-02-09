@@ -9,13 +9,13 @@ import TwdToMapEd from "../model/TwdToMapEd";
 async function MapCoordRun() {
   // const [edMapArray, setEdMapArray] = useState([]);
   const parseQ = new Parse.Query(`Coords2016`);
-  const year = localStorage.getItem("year");
+  const year = sessionStorage.getItem("year");
   const parseQ2 = new Parse.Query(`Regional${year}`);
-  const muniType = localStorage.getItem("muniType");
-  const muniName = localStorage.getItem("muniName");
-  const office = localStorage.getItem("office");
-  let checking = localStorage.getItem("uEstate");
-  const getDems = JSON.parse(localStorage.getItem("demCandArray"));
+  const muniType = sessionStorage.getItem("muniType");
+  const muniName = sessionStorage.getItem("muniName");
+  const office = sessionStorage.getItem("office");
+  let checking = sessionStorage.getItem("uEstate");
+  const getDems = JSON.parse(sessionStorage.getItem("demCandArray"));
 
   let test = [];
 
@@ -134,7 +134,7 @@ async function MapCoordRun() {
       }
       // setEdMapArray(edArray);
       checking = checking + 1;
-      localStorage.setItem("uEstate", checking);
+      sessionStorage.setItem("uEstate", checking);
     }
 
     
@@ -153,8 +153,6 @@ async function MapCoordRun() {
       tempArray3.push(object);
     }
 
-console.log(tempArray3)
-console.log(demMapArray)
 
     for (const item of tempArray3) {
       for (const item2 of demMapArray) {
@@ -170,9 +168,8 @@ console.log(demMapArray)
   }
 
 
-  localStorage.setItem("mapArray", JSON.stringify({ mapArray: tempArray4 }));
+  sessionStorage.setItem("mapArray", JSON.stringify({ mapArray: tempArray4 }));
 
-  console.log(tempArray4)
   return tempArray4;
 }
 

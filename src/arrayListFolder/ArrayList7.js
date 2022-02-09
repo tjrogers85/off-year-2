@@ -7,16 +7,16 @@ import { setLocalDatastore } from "parse/lib/browser/CoreManager";
 
 function ArrayList7() {
   const title = "Select Region";
-  const muniType = localStorage.getItem("muniType");
-  const muniName = localStorage.getItem("muniName");
-  const office = localStorage.getItem("office");
-  localStorage.setItem("uEstate", 0);
+  const muniType = sessionStorage.getItem("muniType");
+  const muniName = sessionStorage.getItem("muniName");
+  const office = sessionStorage.getItem("office");
+  sessionStorage.setItem("uEstate", 0);
   let regionMuniType = "";
 
   function storeElec(regionMuniType) {
-    localStorage.setItem("regionMuniType", regionMuniType);
+    sessionStorage.setItem("regionMuniType", regionMuniType);
 
-    localStorage.setItem("regionObjectArray", JSON.stringify(defineResults));
+    sessionStorage.setItem("regionObjectArray", JSON.stringify(defineResults));
   }
 
   let searchVar = "";
@@ -51,7 +51,7 @@ function ArrayList7() {
     searchVar = county;
   }
 
-  localStorage.setItem("searchVar", searchVar);
+  sessionStorage.setItem("searchVar", searchVar);
 
   regionPicked.map((item) => {
     if (searchVar !== "county") {

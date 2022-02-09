@@ -6,7 +6,7 @@ import Header from "../Header";
 
 function ArrayList() {
   const title = "Year";
-  localStorage.setItem("toggleCounter", 0);
+  sessionStorage.setItem("toggleCounter", 0);
 
   return (
     <div className="App">
@@ -30,7 +30,7 @@ function ArrayList() {
                     <li
                       className="li-standard"
                       onClick={() =>
-                        localStorage.setItem("year", `${item.year.toString()}`)
+                        sessionStorage.setItem("year", `${item.year.toString()}`)
                       }
                     >
                       {item.year}

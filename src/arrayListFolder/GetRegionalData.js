@@ -9,14 +9,14 @@ import RegionalCalc from "./RegionalCalc";
 
 function GetRegionalData(year, muniType, muniName, office, region, prim) {
   const [officeArray, setOfficeArray] = useState([]);
-  const section = localStorage.getItem("section");
-  const regionMuniType = localStorage.getItem("regionMuniType");
+  const section = sessionStorage.getItem("section");
+  const regionMuniType = sessionStorage.getItem("regionMuniType");
   const regionResults = [];
   const regionEdArray = [];
   const regionEdArray2 = [];
-  const edSelect = JSON.parse(localStorage.getItem("edSelect"));
+  const edSelect = JSON.parse(sessionStorage.getItem("edSelect"));
   let parseArray = [];
-  const resultsToRegionArray = JSON.parse(localStorage.getItem("resultsToRegionArray"));
+  const resultsToRegionArray = JSON.parse(sessionStorage.getItem("resultsToRegionArray"));
   let parseQ = "";
 
 
@@ -83,8 +83,6 @@ function GetRegionalData(year, muniType, muniName, office, region, prim) {
             }
         }
     }
-
-    console.log(regionResults)
 
     let regionCalc = RegionalCalc(regionResults, regionEdArray, resultsToRegionArray)
 

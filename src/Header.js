@@ -2,7 +2,7 @@ function Header() {
   return (
     <div
       className="header"
-      style={{ backgroundImage: "url('/images/header.png')" }}
+      style={{ backgroundImage: "url('/images/header.jpg')" }}
     >
       <div className="logo-box">
         <div className="text-box">

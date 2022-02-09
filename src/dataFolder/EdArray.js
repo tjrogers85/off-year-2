@@ -1,9 +1,9 @@
 import regionPicked from "../dataStorage/RegionPicked";
-const regionMuniType = localStorage.getItem("muniType");
-const office = localStorage.getItem("office");
+const regionMuniType = sessionStorage.getItem("muniType");
+const office = sessionStorage.getItem("office");
 const regionEdArray = [];
 let twdSelection = "";
-const edSelect = JSON.parse(localStorage.getItem("edSelect"));
+const edSelect = JSON.parse(sessionStorage.getItem("edSelect"));
 
 function EdArray(region) {
   if (regionMuniType === "Election District") {

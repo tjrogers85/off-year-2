@@ -3,10 +3,10 @@ import react, { useState, useEffect } from "react";
 import TwdToMapEd from "../model/TwdToMapEd";
 
 function GetDemPct(edArray) {
-  const year = localStorage.getItem("year");
+  const year = sessionStorage.getItem("year");
   const parseQ = new Parse.Query(`Regional${year}`);
-  const getDems = JSON.parse(localStorage.getItem("demCandArray"));
-  const office = localStorage.getItem("office");
+  const getDems = JSON.parse(sessionStorage.getItem("demCandArray"));
+  const office = sessionStorage.getItem("office");
   const [dataArray, setDataArray] = useState([]);
 
   parseQ.containedIn("twd", edArray);
@@ -96,9 +96,6 @@ function GetDemPct(edArray) {
   useEffect(() => {
     thisFunc();
   }, []);
-
-  // console.log(demMapArray)
-
 
   return demMapArray;
 }

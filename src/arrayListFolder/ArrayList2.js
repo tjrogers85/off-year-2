@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 function ArrayList2(props) {
   const title = "Election";
-  const year = localStorage.getItem("year");
+  const year = sessionStorage.getItem("year");
 
   function storeElec(storeItem) {
-    localStorage.setItem("elec", `${storeItem}`);
-    localStorage.setItem("yearElec", `${year} ${storeItem}`);
+    sessionStorage.setItem("elec", `${storeItem}`);
+    sessionStorage.setItem("yearElec", `${year} ${storeItem}`);
   }
 
   return (

@@ -6,7 +6,7 @@ import LoadingSpinner from "../LoadingSpinner";
 
 function Pollsite() {
   const parseQ = new Parse.Query(`PollSiteList`);
-  const what = [JSON.parse(localStorage.getItem("voterObject"))];
+  const what = [JSON.parse(sessionStorage.getItem("voterObject"))];
   let voter = "";
   for (const item of what) {
     voter = item.voterObject;
@@ -56,11 +56,11 @@ function Pollsite() {
       <div className="backGround1">
         <div
           className="blue-stretch2"
-          style={{ backgroundImage: "url('/images/mainBackground.png')" }}
+          style={{ backgroundImage: "url('/images/mainBackground.jpg')" }}
         >
           <div
             className="main-screen-voter"
-            style={{ backgroundImage: `url('/images/${bg}.png')` }}
+            style={{ backgroundImage: `url('/images/${bg}.jpg')` }}
           >
             <NavBarTrans />
             {loading ? (

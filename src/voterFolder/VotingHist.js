@@ -1,7 +1,7 @@
 import NavBar from "../NavBar";
 
 function VotingHist() {
-  const elecArray = [JSON.parse(localStorage.getItem("elecArray"))];
+  const elecArray = [JSON.parse(sessionStorage.getItem("elecArray"))];
   let genArray = [];
   let primArray = [];
 

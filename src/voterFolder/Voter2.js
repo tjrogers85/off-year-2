@@ -14,9 +14,11 @@ function Voter2() {
   const [hideBox, setHideBox] = useState(false);
   const [loading, setLoading] = useState(true);
   const voterSearchObject = JSON.parse(
-    localStorage.getItem("voterSearchObject")
+    sessionStorage.getItem("voterSearchObject")
   );
-  const parseQ = new Parse.Query(`Voter20211208`);
+  const parseQ = new Parse.Query(`Voter20220209`);
+  // const parseQ = new Parse.Query(`Voter20211208`);
+
   let first = "";
   let last = "";
   let address = "";
@@ -51,7 +53,6 @@ function Voter2() {
     }
 
     setLoading(false);
-    console.log("flase");
     setQuery(queryResults);
   };
 
@@ -86,7 +87,7 @@ function Voter2() {
                       className="voter-arrange-group"
                       // key={item}
                       onClick={() =>
-                        localStorage.setItem(
+                        sessionStorage.setItem(
                           "voterObject",
                           JSON.stringify({ voterObject: item })
                         )

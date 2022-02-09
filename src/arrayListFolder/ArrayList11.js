@@ -15,19 +15,19 @@ const ArrayList11 = () => {
   const [edMapArray, setEdMapArray] = useState([]);
   const [edButton, setEdButton] = useState(false);
   const [hideBox, setHideBox] = useState(false);
-  let loadingInt = localStorage.getItem("loadingInt");
+  let loadingInt = sessionStorage.getItem("loadingInt");
   const [zoom, setZoom] = useState(10);
   const [latLong, setLatLong] = useState([-73.7619, 41.1129]);
   const parseQ = new Parse.Query(`Coords2016`);
-  const muniType = localStorage.getItem("muniType");
-  const muniName = localStorage.getItem("muniName");
-  const office = localStorage.getItem("office");
-  let checking = +localStorage.getItem("uEstate");
-  const hideBoxstorage = localStorage.getItem("hideBox");
+  const muniType = sessionStorage.getItem("muniType");
+  const muniName = sessionStorage.getItem("muniName");
+  const office = sessionStorage.getItem("office");
+  let checking = +sessionStorage.getItem("uEstate");
+  const hideBoxstorage = sessionStorage.getItem("hideBox");
   let test = [];
   let loading;
 
-  if (localStorage.getItem("loadingInt") === "0") {
+  if (sessionStorage.getItem("loadingInt") === "0") {
     loading = true;
   }
 
@@ -56,8 +56,6 @@ const ArrayList11 = () => {
 
   const demCandArray = GetDemPct(test2);
 
-  console.log(muniType)
-
   useEffect(() => {
     if (demCandArray.length > 500 && hideBoxstorage === "hide") {
       setZoom(11);
@@ -81,7 +79,6 @@ const ArrayList11 = () => {
   const ThisFunc = async () => {
 
     if (checking < 1) {
-      console.log("SDJFSJDJSDF")
       parseQ.containedIn("twd", test2);
       parseQ.limit(100000);
       let queryResults = await parseQ.find();
@@ -98,7 +95,7 @@ const ArrayList11 = () => {
       }
       setEdMapArray(edArray);
       checking = checking + 1;
-      localStorage.setItem("uEstate", checking);
+      sessionStorage.setItem("uEstate", checking);
     }
     let tempArray3 = [];
 
@@ -136,7 +133,7 @@ const ArrayList11 = () => {
 
     if (tempArray3.length > 0) {
       loading = false;
-      localStorage.setItem("loadingInt", "1");
+      sessionStorage.setItem("loadingInt", "1");
     }
 
     localStorage.setItem("mapArray", JSON.stringify({ mapArray: tempArray3 }));
@@ -212,7 +209,6 @@ const ArrayList11 = () => {
   useEffect(() => {
     ThisFunc();
   }, [demCandArray]);
-  // localStorage.setItem("hideBox", 1)
 
   return (
     <div style={{ width: "100%", height: "100vh" }}>
@@ -236,7 +232,7 @@ const ArrayList11 = () => {
           </text>
           <button
             className="big-map-button"
-            onClick={() => [HideBigMap(), localStorage.setItem("hideBox", "1")]}
+            onClick={() => [HideBigMap(), sessionStorage.setItem("hideBox", "1")]}
           >
             OK
           </button>

@@ -57,10 +57,9 @@ function GetResultData(year, muniType, muniName, office, prim, section) {
       parseArray.push(candidateObject);
     }
 
-    localStorage.setItem("resultsToRegionArray", JSON.stringify(parseArray));
+    sessionStorage.setItem("resultsToRegionArray", JSON.stringify(parseArray));
     if (!(prim.includes("Primary"))) {
-      console.log(sectionGen)
-      localStorage.setItem("section", sectionGen);
+      sessionStorage.setItem("section", sectionGen);
     }
     let topSub = TopFilter(parseArray);
     setOfficeArray(topSub);

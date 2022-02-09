@@ -12,17 +12,17 @@ function ArrayList6(props) {
   let loading = true;
   let id = -1;
 
-  const year = localStorage.getItem("year");
-  const muniType = localStorage.getItem("muniType");
-  const muniName = localStorage.getItem("muniName");
-  const office = localStorage.getItem("office");
-  const prim = localStorage.getItem("elec");
-  const section = localStorage.getItem("section");
+  const year = sessionStorage.getItem("year");
+  const muniType = sessionStorage.getItem("muniType");
+  const muniName = sessionStorage.getItem("muniName");
+  const office = sessionStorage.getItem("office");
+  const prim = sessionStorage.getItem("elec");
+  const section = sessionStorage.getItem("section");
 
-  localStorage.setItem("loadingInt", "0");
-  localStorage.setItem("hideBox", "hide");
-  localStorage.setItem("uEstate", 0);
-  localStorage.setItem("1", "1");
+  sessionStorage.setItem("loadingInt", "0");
+  sessionStorage.setItem("hideBox", "hide");
+  sessionStorage.setItem("uEstate", 0);
+  sessionStorage.setItem("1", "1");
 
   let totalBallot = 0;
 
@@ -44,10 +44,10 @@ function ArrayList6(props) {
     } else {
       officeArray[index].show = true;
     }
-    id = localStorage.getItem("toggleCounter");
+    id = sessionStorage.getItem("toggleCounter");
     yes(id);
     id++;
-    localStorage.setItem("toggleCounter", id);
+    sessionStorage.setItem("toggleCounter", id);
   }
   let demCandArray = [];
   for (const item of officeArray) {
@@ -58,7 +58,7 @@ function ArrayList6(props) {
     }
   }
   const demCandObject = { array: demCandArray };
-  localStorage.setItem("demCandArray", JSON.stringify(demCandObject));
+  sessionStorage.setItem("demCandArray", JSON.stringify(demCandObject));
 
   function ToggleTurnout() {
     turnoutButton ? setTurnoutButton(false) : setTurnoutButton(true);
@@ -128,10 +128,7 @@ function ArrayList6(props) {
               <div className="br-turnout" />
               <button
                 className="turnout-button"
-                // onClick={() => [
-                //   localStorage.setItem("uEstate", 0),
-                //   MapCoordRun(),
-                // ]}
+
               >
                 <Link
                   className="no-link-style"
@@ -150,7 +147,7 @@ function ArrayList6(props) {
             <br />
             <br />
             {year > 2010 && !prim.includes("Primary") ? (
-              <button className="map-button" onClick={() => [window.open("/11"), localStorage.setItem("uEstate", "0")
+              <button className="map-button" onClick={() => [window.open("/11"), sessionStorage.setItem("uEstate", "0")
             ]}>
                 Show Map of Results
               </button>

@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 
 function ArrayList5P() {
   const title = "Office";
-  const year = localStorage.getItem("year");
-  const muniName = localStorage.getItem("muniName");
-  const muniType = localStorage.getItem("muniType");
-  const muniTypeArray = localStorage.getItem("muniTypeArray");
+  const year = sessionStorage.getItem("year");
+  const muniName = sessionStorage.getItem("muniName");
+  const muniType = sessionStorage.getItem("muniType");
+  const muniTypeArray = sessionStorage.getItem("muniTypeArray");
 
   if (muniType === "County") {
-    localStorage.setItem("muniName", "Westchester");
+    sessionStorage.setItem("muniName", "Westchester");
   } else if (muniType === "State") {
-    localStorage.setItem("muniName", "New York");
+    sessionStorage.setItem("muniName", "New York");
   } else if (muniType === "Federal") {
-    localStorage.setItem("muniName", "U.S.");
+    sessionStorage.setItem("muniName", "U.S.");
   }
 
   const officeArray = GetOfficesP(year, muniType, muniName, muniTypeArray);
@@ -35,8 +35,8 @@ function ArrayList5P() {
                 >
                   <li
                     onClick={() =>
-                      [localStorage.setItem("office", `${item.office}`), 
-                      localStorage.setItem("section", `${item.section}`)]
+                      [sessionStorage.setItem("office", `${item.office}`), 
+                      sessionStorage.setItem("section", `${item.section}`)]
                     }
                   >
                     <span className="span-item1">

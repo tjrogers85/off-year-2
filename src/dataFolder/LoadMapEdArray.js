@@ -5,8 +5,8 @@ import EdArray from "./EdArray";
 function LoadMapEdArray() {
   const [edMapArray, setEdMapArray] = useState([]);
   const parseQ = new Parse.Query(`Coords2016`);
-  const office = localStorage.getItem("office");
-  let checking = localStorage.getItem("uEstate");
+  const office = sessionStorage.getItem("office");
+  let checking = sessionStorage.getItem("uEstate");
 
   let edArray = [];
   const test = EdArray(office);
@@ -25,7 +25,7 @@ function LoadMapEdArray() {
       }
       setEdMapArray(edArray);
       checking = checking + 1;
-      localStorage.setItem("uEstate", checking);
+      sessionStorage.setItem("uEstate", checking);
     }
   };
 

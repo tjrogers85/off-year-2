@@ -19,19 +19,19 @@ function ArrayList11R() {
   const [zoom, setZoom] = useState(10);
   const [latLong, setLatLong] = useState([-73.7619, 41.1129]);
   const parseQ = new Parse.Query(`Coords2016`);
-  const muniType = localStorage.getItem("muniType");
-  const muniName = localStorage.getItem("muniName");
-  const office = localStorage.getItem("office");
-  let checking = localStorage.getItem("uEstate");
-  const region = localStorage.getItem("region");
-  const regionMuniType = localStorage.getItem("regionMuniType");
+  const muniType = sessionStorage.getItem("muniType");
+  const muniName = sessionStorage.getItem("muniName");
+  const office = sessionStorage.getItem("office");
+  let checking = sessionStorage.getItem("uEstate");
+  const region = sessionStorage.getItem("region");
+  const regionMuniType = sessionStorage.getItem("regionMuniType");
 
-  const year = localStorage.getItem("year");
+  const year = sessionStorage.getItem("year");
   const parseQ2 = new Parse.Query(`Regional${year}`);
-  const getDems = JSON.parse(localStorage.getItem("demCandArray"));
+  const getDems = JSON.parse(sessionStorage.getItem("demCandArray"));
   const mapArray = [JSON.parse(localStorage.getItem("mapArray"))][0].mapArray;
 
-  const hideBoxstorage = localStorage.getItem("hideBox");
+  const hideBoxstorage = sessionStorage.getItem("hideBox");
   let test = [];
 
   function ToggleEds() {
@@ -167,7 +167,7 @@ function ArrayList11R() {
           }
         }
         checking = checking + 1;
-        localStorage.setItem("uEstate", checking);
+        sessionStorage.setItem("uEstate", checking);
       }
 
       for (const item of edArray2) {
@@ -197,7 +197,6 @@ function ArrayList11R() {
         }
       }
     }
-    console.log(tempArray4);
     setEdMapArray(tempArray4);
 
   };
@@ -215,7 +214,6 @@ function ArrayList11R() {
   }, []);
 
   useEffect(() => {
-    console.log(muniType)
 
     let zoomCoords = "";
     if (regionMuniType === "Town/City") {
@@ -316,7 +314,7 @@ function ArrayList11R() {
           <text>This is a really big map!</text>
           <button
             className="big-map-button"
-            onClick={() => [HideBigMap(), localStorage.setItem("hideBox", "1")]}
+            onClick={() => [HideBigMap(), sessionStorage.setItem("hideBox", "1")]}
           >
             OK, I'll be patient
           </button>

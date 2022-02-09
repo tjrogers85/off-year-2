@@ -11,9 +11,9 @@ function TurnoutExpand2(props) {
   const muniName = props.muniName;
   const office = props.office;
   const totalBallot = props.totalBallot;
-  const regionMuniType = localStorage.getItem("regionMuniType");
-  const region = localStorage.getItem("region");
-  const edSelect = JSON.parse(localStorage.getItem("edSelect"));
+  const regionMuniType = sessionStorage.getItem("regionMuniType");
+  const region = sessionStorage.getItem("region");
+  const edSelect = JSON.parse(sessionStorage.getItem("edSelect"));
 
 
   let queryResults = "";

@@ -8,10 +8,7 @@ function Verification() {
     const alertVerif = localStorage.getItem("AlertVerif")
     const navigate = useNavigate();
 
-    console.log(alertVerif)
-
     if (alertVerif === "0") {
-        console.log("I'm here!")
         alert("Thank You. A verification code will be emailed to you, pending approval.")
         localStorage.setItem("AlertVerif", 1)
     }
@@ -33,7 +30,7 @@ function Verification() {
       <Header />
       <div
         className="auth-main"
-        style={{ backgroundImage: "url('/images/mainBackground.png')" }}
+        style={{ backgroundImage: "url('/images/mainBackground.jpg')" }}
       >
         <div className="auth-button-box">
           <div className="verif-bg">

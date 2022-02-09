@@ -8,7 +8,7 @@ import TownCodeToTown from "../model/TownCodeToTown";
 import TwdToTownCode from "../model/TwdToTownCode";
 
 function Voter3() {
-  const what = [JSON.parse(localStorage.getItem("voterObject"))];
+  const what = [JSON.parse(sessionStorage.getItem("voterObject"))];
   let voter = "";
   for (const item of what) {
     voter = item.voterObject;
@@ -49,8 +49,8 @@ function Voter3() {
       oyVoter = oyVoter + 1;
     }
   }
-  localStorage.setItem("elecArray", JSON.stringify({ elecArray: elecArray }));
-  localStorage.setItem("absArray", JSON.stringify({ absArray: absArray }));
+  sessionStorage.setItem("elecArray", JSON.stringify({ elecArray: elecArray }));
+  sessionStorage.setItem("absArray", JSON.stringify({ absArray: absArray }));
 
   let absQ = "";
 
@@ -83,7 +83,7 @@ function Voter3() {
   const subdivisionFunc = () => {
     for (const item of regionalSelect) {
       if (item.ed === voter.twd) {
-        localStorage.setItem("subdivisions", JSON.stringify(item));
+        sessionStorage.setItem("subdivisions", JSON.stringify(item));
       }
     }
     navigate("/subdivisions");
@@ -106,7 +106,7 @@ function Voter3() {
       <div className="backGround1">
         <div
           className="blue-stretch2"
-          style={{ backgroundImage: "url('/images/mainBackground.png')" }}
+          style={{ backgroundImage: `url('/images/${bg}.jpg')` }}
         >
           <div
             className="main-screen-voter">

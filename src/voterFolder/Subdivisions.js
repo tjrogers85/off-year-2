@@ -1,7 +1,7 @@
 import NavBar from "../NavBar";
 
 function Subdivisions() {
-  const subdivisions = JSON.parse(localStorage.getItem("subdivisions"));
+  const subdivisions = JSON.parse(sessionStorage.getItem("subdivisions"));
 
   return (
     <div className="App">

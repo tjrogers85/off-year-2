@@ -11,13 +11,13 @@ function ArrayList9(props) {
 
   let id = -1;
 
-  const year = localStorage.getItem("year");
-  const muniType = localStorage.getItem("muniType");
-  const muniName = localStorage.getItem("muniName");
-  const office = localStorage.getItem("office");
-  const regionMuniType = localStorage.getItem("regionMuniType");
-  const region = localStorage.getItem("region");
-  const prim = localStorage.getItem("elec");
+  const year = sessionStorage.getItem("year");
+  const muniType = sessionStorage.getItem("muniType");
+  const muniName = sessionStorage.getItem("muniName");
+  const office = sessionStorage.getItem("office");
+  const regionMuniType = sessionStorage.getItem("regionMuniType");
+  const region = sessionStorage.getItem("region");
+  const prim = sessionStorage.getItem("elec");
 
   let totalBallot = 0;
 
@@ -29,8 +29,6 @@ function ArrayList9(props) {
     region,
     prim
   );
-
-  console.log(officeArray)
 
   if (officeArray.length > 0) {
     loading = false
@@ -48,10 +46,10 @@ function ArrayList9(props) {
     } else {
       officeArray[index].show = true;
     }
-    id = localStorage.getItem("toggleCounter");
+    id = sessionStorage.getItem("toggleCounter");
     yes(id);
     id++;
-    localStorage.setItem("toggleCounter", id);
+    sessionStorage.setItem("toggleCounter", id);
   }
 
   function ToggleTurnout() {
@@ -127,7 +125,7 @@ function ArrayList9(props) {
             <br />
               <button
                 className="map-button"
-                onClick={() => [window.open("/11R"), localStorage.setItem("uEstate", "0")]}
+                onClick={() => [window.open("/11R"), sessionStorage.setItem("uEstate", "0")]}
               >
                 Show Map of Results
               </button>
